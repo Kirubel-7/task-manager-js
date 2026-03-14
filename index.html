@@ -5,77 +5,76 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Task Flow</title>
     <link rel="stylesheet" href="css/style.css" />
+    <link href="https://fonts.googleapis.com/css?family=Lora|Ubuntu:400,700&display=swap" rel="stylesheet">
   </head>
   <body>
-
-    
+    <!-- Wrapper -->
     <div class="container">
+        <h1>Task Flow</h1>
 
-    <!-- /////////// Header /////////// -->
-    <header class="header">
-        <h1 class="task-title">Task Flow</h1>
-    </header>
+        <!-- task-form -->
+        <section class="task-form-card">
+            <h2>Create New Task</h2>
 
-    <!-- /////////// Task Input Form //////////// -->
-      <div class="card form-section">
-        <h2>Create New Task</h2>
-       <form action="#" method="post">
-        <div class="form-group">
-            <label for="task-title">Task Title</label>
-            <input type="text" id="task-title" class="form-input" placeholder="Enter task title...">
-        </div>
-        <div class="form-group">
-            <label class="form-label" for="task-description">Task Description</label>
-            <textarea id="task-description" class="form-textarea" placeholder="Enter task description..."></textarea>
-        </div>
-        <div class="button-group">
-            <button class="button button-primary">Add Task</button>
-        </div>
-       </form>
-    </div>
-
-    <!-- Filter Section -->
-        <div class="filter-section">
-            <button class="filter-button active">All</button>
-            <button class="filter-button">Completed</button>
-            <button class="filter-button">Pending</button>
-        </div>
-
-    <!-- Task List -->
-        <div class="task-list">
-            <div class="task-card">
-                <div class="task-content">
-                    <input type="checkbox" class="checkbox">
-                    <div class="task-info">
-                        <h3 class="task-title">Design UI Mockups</h3>
-                        <p class="task-description">Create high-fidelity mockups for the new dashboard interface</p>
-                    </div>
-
-                    <div class="task-actions">
-                        <button class="icon-button edit">Edit </button>
-                        <button class="icon-button delete">Delete</button>
-                    </div>
+            <form action="#" class="task-form">
+                <div class="form-field">
+                <label for="task-title">Task Title</label>
+                <input type="text" id="task-title">
                 </div>
+                
+                <div class="form-field">
+                <label for="task-description">Task Description</label>
+                <textarea name="task description" id="task-description"></textarea>
+                </div>
+
+                <div class="form-actions">
+                <button type="submit" class="add-btn">Add Task</button>
+                </div>
+            </form>
+        </section>
+
+        <!-- task filter controls -->
+        <section class="task-filters">
+            <h2>Filter Tasks</h2>
+
+            <div class="filter-buttons">
+                <button type="button" data-filter="all" aria-pressed="true">All</button>
+                <button type="button" data-filter="completed" aria-pressed="false">Completed</button>
+                <button type="button" data-filter="pending" aria-pressed="false">Pending</button>
             </div>
-        </div>    
-      
-    <!--  //////////// Stats Section ///////////-->
-      <div class="stats-card">
-       <div class="stats-container">
-        <div class="total-tasks">
-            <h3 id="tt num">5</h3>
-            <p>Total Tasks</p>
-        </div>
-        <div class="divider">-------------</div>
-        <div class="completed-tasks">
-            <h3 id="ct num">2</h3>
-            <p>Completed Tasks</p>
-        </div>
-       </div>
-    </div>
+
+        </section>
+
+        <!-- filtered tasks section -->
+        <section class="task-list-section">
+            <h2 class="visually-hidden">Task List</h2>
+                <ul class="task-list" id="task-list">
+                    <!-- JS will insert task items here -->
+                    <!-- list of {checkbox, content, actions} -->
+                </ul>
+        </section>
+
+        <!-- Task status section -->
+         <section class="task-status">
+            <h2>Task Status</h2>
+
+            <div class="status-card">
+                <dl class="status-list">
+
+                    <div class="status-item total-tasks">
+                         <dt class="status-term">Total Tasks</dt>
+                         <dd class="status-value" id="total-tasks-count">0</dd>
+                    </div>
+
+                    <div class="status-item completed-tasks">
+                         <dt class="status-term">Completed Tasks</dt>
+                         <dd class="status-value" id="completed-tasks-count">0</dd>
+                    </div>
+                </dl>
+            </div>
+         </section>
 
     </div>
-
     
 
     <script src="js/script.js" defer></script>

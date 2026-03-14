@@ -1,0 +1,50 @@
+body {
+  margin: 0;
+  font-family: "Ubuntu", sans-serif;
+  border: solid yellow;
+}
+
+.container {
+  border: solid red;
+  max-width: 896px;
+  margin: 0 auto;
+  padding: 3rem 1.5rem;
+}
+
+/* ===============
+Typography
+ ================*/
+
+h1 {
+  font-family: "Lora", serif;
+  font-weight: 400;
+}
+
+h2 {
+  font-weight: 500;
+  font-size: 1.4rem;
+}
+
+label {
+  font-size: 0.875rem;
+  color: #777676;
+}
+
+.task-form-card {
+  border: solid black;
+}
+
+.task-filters {
+  border: solid yellow;
+}
+.filter-buttons {
+  border: solid green;
+}
+
+.task-list-section {
+  border: solid aqua;
+}
+
+.task-status {
+  border: solid blue;
+}

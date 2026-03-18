@@ -19,16 +19,16 @@
             <form action="#" class="task-form">
                 <div class="form-field">
                 <label for="task-title">Task Title</label>
-                <input type="text" id="task-title">
+                <input type="text" id="task-title" placeholder="Enter task title...">
                 </div>
                 
                 <div class="form-field">
                 <label for="task-description">Task Description</label>
-                <textarea name="task description" id="task-description"></textarea>
+                <textarea name="task description" id="task-description" placeholder="Enter task description..."></textarea>
                 </div>
 
                 <div class="form-actions">
-                <button type="submit" class="add-btn">Add Task</button>
+                <button type="submit" class="add-btn" id="add-btn">Add Task</button>
                 </div>
             </form>
         </section>
@@ -38,19 +38,58 @@
             <h2>Filter Tasks</h2>
 
             <div class="filter-buttons">
-                <button type="button" data-filter="all" aria-pressed="true">All</button>
-                <button type="button" data-filter="completed" aria-pressed="false">Completed</button>
-                <button type="button" data-filter="pending" aria-pressed="false">Pending</button>
+                <button type="button" class="filter-btn is-active" data-filter="all" aria-pressed="true">All</button>
+                <button type="button" class="filter-btn " data-filter="completed" aria-pressed="false">Completed</button>
+                <button type="button" class="filter-btn " data-filter="pending" aria-pressed="false">Pending</button>
             </div>
 
         </section>
 
         <!-- filtered tasks section -->
         <section class="task-list-section">
-            <h2 class="visually-hidden">Task List</h2>
+            <h2>Task List</h2>
                 <ul class="task-list" id="task-list">
                     <!-- JS will insert task items here -->
                     <!-- list of {checkbox, content, actions} -->
+                     <li class="task-item task-item--completed" data-task-id="task-001" data-status="completed">
+  <div class="task-item__main">
+    <div class="task-item__status">
+      <input
+        class="task-item__checkbox"
+        type="checkbox"
+        id="task-001"
+        checked
+      >
+
+      <label class="task-item__content" for="task-001">
+        <span class="task-item__title">Design UI Mockups</span>
+        <span class="task-item__description">
+          Create high-fidelity mockups for the new dashboard interface
+        </span>
+      </label>
+    </div>
+  </div>
+
+  <div class="task-item__actions">
+    <button
+      type="button"
+      class="task-action-button"
+      data-action="edit"
+      aria-label="Edit task: Design UI Mockups"
+    >
+      ✎
+    </button>
+
+    <button
+      type="button"
+      class="task-action-button task-action-button--danger"
+      data-action="delete"
+      aria-label="Delete task: Design UI Mockups"
+    >
+      🗑
+    </button>
+  </div>
+</li>
                 </ul>
         </section>
 

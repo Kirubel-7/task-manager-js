@@ -84,6 +84,7 @@ function deleteTask(taskId) {
   if (editingTaskId === taskId) {
     resetFormState();
   }
+  updateTaskCounts();
 }
 
 function toggleTaskCompleted(taskId, completed) {
@@ -97,7 +98,11 @@ function toggleTaskCompleted(taskId, completed) {
 
 function renderTasks(taskArray) {
   taskList.innerHTML = "";
-
+  if(taskArray.length === 0) { 
+    taskList.innerHTML = "<li>No tasks found</li>";
+     return;
+     }
+  const fragment = document.createDocumentFragment();
   taskArray.forEach(({ id, title, description, completed }) => {
     const taskItem = document.createElement("li");
     taskItem.className = "task-item";
@@ -145,9 +150,9 @@ function renderTasks(taskArray) {
     taskItem.querySelector(".task-item__title").textContent = title;
     taskItem.querySelector(".task-item__description").textContent = description;
 
-    taskList.appendChild(taskItem);
+    fragment.appendChild(taskItem);
   });
-
+  taskList.appendChild(fragment)
   updateTaskCounts();
 }
 
@@ -189,6 +194,7 @@ filterButtonsListener.addEventListener("click", (event) => {
 });
 
 // ---------- checkbox + edit/delete ----------
+
 
 taskList.addEventListener("change", (event) => {
   if (!event.target.classList.contains("task-item__checkbox")) return;

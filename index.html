@@ -5,120 +5,159 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Task Flow</title>
     <link rel="stylesheet" href="css/style.css" />
-    <link href="https://fonts.googleapis.com/css?family=Lora|Ubuntu:400,700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
-    <!-- Wrapper -->
     <div class="container">
-        <h1>Task Flow</h1>
+      <header class="hero">
+        <div class="hero__eyebrow">Portfolio Project</div>
+        <div class="hero__content">
+          <div class="hero__copy">
+            <h1>Task Flow</h1>
+            <p class="hero__subtitle">
+              A focused, elegant task manager for planning work with clarity.
+            </p>
+          </div>
 
-        <!-- task-form -->
-        <section class="task-form-card">
-            <h2>Create New Task</h2>
+          <div class="hero__meta">
+            <div class="hero__meta-card">
+              <span class="hero__meta-label">Built With</span>
+              <strong>HTML, CSS, JavaScript</strong>
+            </div>
+            <div class="hero__meta-card">
+              <span class="hero__meta-label">Project Goal</span>
+              <strong>Task organization with clean UX</strong>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <section class="about-project">
+        <div class="section-heading">
+          <span class="section-heading__eyebrow">About This Project</span>
+          <h2>Modern task management presented as a polished frontend showcase.</h2>
+        </div>
+        <p>
+          Task Flow is a mini task manager app developed to demonstrate core
+          JavaScript concepts and selected advanced JavaScript techniques,
+          wrapped in a modern interface designed to feel presentation-ready for a
+          portfolio.
+        </p>
+      </section>
+
+      <main class="app-layout">
+        <div class="app-layout__primary">
+          <section class="task-form-card app-card">
+            <div class="section-heading">
+              <span class="section-heading__eyebrow">Create</span>
+              <h2>Create New Task</h2>
+            </div>
 
             <form action="#" class="task-form">
-                <div class="form-field">
+              <div class="form-field">
                 <label for="task-title">Task Title</label>
-                <input type="text" id="task-title" placeholder="Enter task title...">
-                </div>
-                
-                <div class="form-field">
+                <input
+                  type="text"
+                  id="task-title"
+                  placeholder="Enter task title..."
+                />
+              </div>
+
+              <div class="form-field">
                 <label for="task-description">Task Description</label>
-                <textarea name="task description" id="task-description" placeholder="Enter task description..."></textarea>
-                </div>
+                <textarea
+                  name="task description"
+                  id="task-description"
+                  placeholder="Enter task description..."
+                ></textarea>
+              </div>
 
-                <div class="form-actions">
-                <button type="submit" class="add-btn" id="add-btn">Add Task</button>
-                </div>
+              <div class="form-actions">
+                <button type="submit" class="add-btn" id="add-btn">
+                  Add Task
+                </button>
+              </div>
             </form>
-        </section>
+          </section>
 
-        <!-- task filter controls -->
-        <section class="task-filters">
-            <h2>Filter Tasks</h2>
+          <section class="task-filters app-card">
+            <div class="section-heading">
+              <span class="section-heading__eyebrow">Browse</span>
+              <h2>Filter Tasks</h2>
+            </div>
 
             <div class="filter-buttons">
-                <button type="button" class="filter-btn is-active" data-filter="all" aria-pressed="true">All</button>
-                <button type="button" class="filter-btn " data-filter="completed" aria-pressed="false">Completed</button>
-                <button type="button" class="filter-btn " data-filter="pending" aria-pressed="false">Pending</button>
+              <button
+                type="button"
+                class="filter-btn is-active"
+                data-filter="all"
+                aria-pressed="true"
+              >
+                All
+              </button>
+              <button
+                type="button"
+                class="filter-btn"
+                data-filter="completed"
+                aria-pressed="false"
+              >
+                Completed
+              </button>
+              <button
+                type="button"
+                class="filter-btn"
+                data-filter="pending"
+                aria-pressed="false"
+              >
+                Pending
+              </button>
+            </div>
+          </section>
+
+          <section class="task-list-section app-card">
+            <div class="section-heading">
+              <span class="section-heading__eyebrow">Tasks</span>
+              <h2>Task List</h2>
             </div>
 
-        </section>
+            <ul class="task-list" id="task-list">
+              <!-- JS will insert task items here -->
+            </ul>
+          </section>
+        </div>
 
-        <!-- filtered tasks section -->
-        <section class="task-list-section">
-            <h2>Task List</h2>
-                <ul class="task-list" id="task-list">
-                    <!-- JS will insert task items here -->
-                    <!-- list of {checkbox, content, actions} -->
-                     <!-- <li class="task-item task-item--completed" data-task-id="task-001" data-status="completed">
-  <div class="task-item__main">
-    <div class="task-item__status">
-      <input
-        class="task-item__checkbox"
-        type="checkbox"
-        id="task-001"
-        checked
-      >
-
-      <label class="task-item__content" for="task-001">
-        <span class="task-item__title">Design UI Mockups</span>
-        <span class="task-item__description">
-          Create high-fidelity mockups for the new dashboard interface
-        </span>
-      </label>
-    </div>
-  </div>
-
-  <div class="task-item__actions">
-    <button
-      type="button"
-      class="task-action-button"
-      data-action="edit"
-      aria-label="Edit task: Design UI Mockups"
-    >
-      ✎
-    </button>
-
-    <button
-      type="button"
-      class="task-action-button task-action-button--danger"
-      data-action="delete"
-      aria-label="Delete task: Design UI Mockups"
-    >
-      🗑
-    </button>
-  </div>
-</li> -->
-                </ul>
-        </section>
-
-        <!-- Task status section -->
-         <section class="task-status">
+        <aside class="task-status app-card">
+          <div class="section-heading">
+            <span class="section-heading__eyebrow">Overview</span>
             <h2>Task Status</h2>
+          </div>
 
-            <div class="status-card">
-                <dl class="status-list">
+          <div class="status-card">
+            <dl class="status-list">
+              <div class="status-item total-tasks">
+                <dt class="status-term">Total Tasks</dt>
+                <dd class="status-value" id="total-tasks-count">0</dd>
+              </div>
 
-                    <div class="status-item total-tasks">
-                         <dt class="status-term">Total Tasks</dt>
-                         <dd class="status-value" id="total-tasks-count">0</dd>
-                    </div>
+              <div class="status-item completed-tasks">
+                <dt class="status-term">Completed Tasks</dt>
+                <dd class="status-value" id="completed-tasks-count">0</dd>
+              </div>
+            </dl>
+          </div>
+        </aside>
+      </main>
 
-                    <div class="status-item completed-tasks">
-                         <dt class="status-term">Completed Tasks</dt>
-                         <dd class="status-value" id="completed-tasks-count">0</dd>
-                    </div>
-                </dl>
-            </div>
-         </section>
-
+      <footer class="site-footer">
+        <p>&copy; 2026 Kirubel Esayas. All rights reserved.</p>
+      </footer>
     </div>
-    
 
     <script src="js/script.js" defer></script>
-    <!-- The defer attribute is a modern best practice, which tells the browser 
-     to download the script in the background without blocking the HTML parsing,
-      and to execute it only after the HTML document is fully parsed. -->
   </body>
 </html>
